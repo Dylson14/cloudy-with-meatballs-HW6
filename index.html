@@ -24,8 +24,10 @@
 
         <form class="p-2" id="user-form">
           <label for="city">City:</label>
-          <input class="inputBox focus:outline-none focus:shadow-outline" name="cityInput" id="cityInputId" type="text" placeholder="San Diego">
-          <button type="submit" class="isBtn bg-blue-500 hover:bg-blue-700 rounded-full">Get Weather</button>
+
+          <input  id="cityInputId" class="inputBox focus:outline-none focus:shadow-outline" name="cityInput" type="text" placeholder="San Diego">
+          
+          <button id="searchBtn" type="submit" class="isBtn bg-blue-500 hover:bg-blue-700 rounded-full">Get Weather</button>
         </form>
       </div>
 
@@ -42,7 +44,7 @@
     <section id="rightHandColumn" class="parentContainer grid grid-cols-1">
 
         <div class="contentCard ">
-          <h1>Atlanta 2021-03-14</h1>
+          <h1 id="cityName" class="text-3xl">Atlanta 2021-03-14</h1>
           <p>Temp: 12 Celcius</p>
           <p>Wind: 5km/hr</p>
           <p>Humidity: 50%</p>
@@ -58,5 +60,6 @@
  
   </main>
 
+  <script src="script.js"></script>
   </body>
 </html>

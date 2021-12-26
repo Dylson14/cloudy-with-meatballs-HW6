@@ -1,47 +1,31 @@
-var searchBtn = document.getElementById("searchBtn")
-var cityNameEl = document.getElementById("cityName")
-var cityInputEl = document.getElementById("cityInputId")
-// const cityInput = document.queryselector("#cityInputId")
-console.log("test")
+var searchBtn = document.getElementById("searchBtn");
+var cityNameEl = document.getElementById("#current-city");
+var cityInputEl = document.getElementById("city-input-id");
 
-// var testInput = "Atlanta"
-const APIKey = "c9a9ed03a355403f4cb9a36e931c0b4a"
+{/* <h1 id="current-city" class="text-3xl">Atlanta 2021-03-14</h1>
+          <p id="current-temp">Temp: 12 Celcius</p>
+          <p id="current-wind-speed">Wind: 5km/hr</p>
+          <p id="current-humidity">Humidity: 50%</p>
+          <p id="current-uv">UV index: 0.4</p> */}
 
 
-
-
+const APIKey = "7fc61c72acc56d32571bd5733eda5a09";
 
 const getWeather = (cityTerm) => {
-    event.preventDefault()
-    console.log(`This is inside of getWeather: ${cityTerm}`);
-    // var queryURL = `api.openweathermap.org/data/2.5/weather?q=${cityTerm}&appid=${APIKey}`
-    // var queryURL = `https://api.github.com/users/${cityTerm}/repos` <-- This was a test of a different API
-    
-    fetch(queryURL)
-     .then((res) => {
-         c
-        console.log(`This is inside of the fetch: ${res}`);
-        })
-     .then(()=> {
-         
-     })
-        
-}
-
-// searchBtn.addEventListener("click", getWeather)
-
-// const testFunc = () => {
-//     event.preventDefault();
-//     console.log("HORRAY testFunc works!")
-// }
+  event.preventDefault();
+  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityTerm}&appid=${APIKey}`;
+  console.log(`This is inside of getWeather:${cityTerm}`);
+  fetch(queryURL)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+};
 
 searchBtn.addEventListener("click", () => {
-   const cityTerm = cityInputId.value;
-   console.log(`This is the searchBtn listener: ${cityTerm}`);
-   getWeather(cityTerm);
-
-})
-
-
-
-
+  event.preventDefault();
+  var cityTerm = cityInputEl.value;
+  getWeather(cityTerm);
+});

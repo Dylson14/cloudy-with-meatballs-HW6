@@ -24,6 +24,13 @@ const getWeather = (cityTerm) => {
     .then((data) => {
       console.log(data);
       currentCityEl.textContent = data.name;
+      var weatherIcon = data.weather[0].icon
+
+
+
+      currentCityEl.append((weatherIcon))
+
+      
 
     });
 

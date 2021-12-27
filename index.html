@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./assets/styles.css">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/images/">
   </head>
 
   <body>
@@ -70,14 +71,10 @@
   <script src="./lib/moment/moment.locale.min.js"></script>
   <script>
     const m = moment();
-    
     m.locale("en-au")
-    console.log(m.format("L"));
 
-     var currentTimeEl = document.getElementById("current-time");
+    var currentTimeEl = document.getElementById("current-time");
 
-     currentTimeEl.textContent = m.format("L")
-
-   
+    currentTimeEl.textContent = m.format("L")
   </script>
 </html>

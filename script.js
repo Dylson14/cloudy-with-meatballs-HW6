@@ -1,6 +1,7 @@
 var searchBtn = document.getElementById("searchBtn");
 var cityInputEl = document.getElementById("city-input-id");
 var currentCityEl = document.getElementById("current-city");
+var currentTimeEl = document.getElementById("current-time");
 var currentTemp = document.getElementById("current-temp");
 var currentWindSpeed = document.getElementById("current-wind-speed");
 var currentHumidity = document.getElementById("current-humidity");
@@ -23,6 +24,7 @@ const getWeather = (cityTerm) => {
     .then((data) => {
       console.log(data);
       currentCityEl.textContent = data.name;
+
     });
 
 };

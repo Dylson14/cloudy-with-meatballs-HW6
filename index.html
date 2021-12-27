@@ -44,7 +44,13 @@
     <section id="rightHandColumn" class="parentContainer grid grid-cols-1">
 
         <div class="contentCard ">
-          <h1 id="current-city" class="text-3xl">Atlanta 2021-03-14</h1>
+          <div class="flex flex-row">
+            <h1 id="current-city" class="text-3xl">
+              Atlanta 
+            </h1>
+            <span id="current-time" class="mt-2 ml-1 text-2xl"></span>
+          </div>
+          
           <p id="current-temp">Temp: 12 Celcius</p>
           <p id="current-wind-speed">Wind: 5km/hr</p>
           <p id="current-humidity">Humidity: 50%</p>
@@ -63,15 +69,14 @@
   <script src="script.js"></script>
   <script src="./lib/moment/moment.locale.min.js"></script>
   <script>
-    // console.log(m.toString());
-    // console.log(m.format("[Yeah the day is] dddd [and we're in] YYYY"))
     const m = moment();
-    const m2= moment("2019-02-13");
     
     m.locale("en-au")
     console.log(m.format("L"));
 
-    console.log(m2.daysInMonth())
+     var currentTimeEl = document.getElementById("current-time");
+
+     currentTimeEl.textContent = m.format("L")
 
    
   </script>

@@ -61,6 +61,18 @@
   </main>
 
   <script src="script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  </body>
+  <script src="./lib/moment/moment.locale.min.js"></script>
+  <script>
+    // console.log(m.toString());
+    // console.log(m.format("[Yeah the day is] dddd [and we're in] YYYY"))
+    const m = moment();
+    const m2= moment("2019-02-13");
+    
+    m.locale("en-au")
+    console.log(m.format("L"));
+
+    console.log(m2.daysInMonth())
+
+   
+  </script>
 </html>

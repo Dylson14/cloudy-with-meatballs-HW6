@@ -7,6 +7,8 @@ var currentHumidity = document.getElementById("current-humidity");
 var currentUV = document.getElementById("current-uv");
 
 
+
+
 const APIKey = "7fc61c72acc56d32571bd5733eda5a09";
 
 const getWeather = (cityTerm) => {

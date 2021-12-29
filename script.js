@@ -24,15 +24,19 @@ const getWeather = (city) => {
     .then((data) => {
       console.log(data);
       currentCityEl.textContent = data.name;
+      currentTemp.textContent = data.main.temp;
+
       var weatherIcon = data.weather[0].icon
 
       const showIcon = (weatherIcon) => {
-        currentIconEl.textContent = weatherIcon;
-        // var currentWethImg = `assets/images/${weatherIcon}@2x.png`;
-        // var currentWethIconImg = document.createElement("img");
-        // currentWethIconImg.attribute("src", currentWethImg);
+        var icon = document.createElement("img");
 
-        //  $("#currentCityInfo").append(currentWethIconImg);
+        icon.setAttribute("src", `https://openweathermap.org/img/w/${weatherIcon}.png`);
+
+        currentIconEl.append(icon);
+
+       
+
       }
 
       showIcon(weatherIcon);

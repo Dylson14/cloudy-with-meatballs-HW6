@@ -28,7 +28,7 @@
 
           <input  id="city-input-id" class="inputBox focus:outline-none focus:shadow-outline" name="cityInput" type="text" placeholder="San Diego">
           
-          <button id="searchBtn" type="submit" class="isBtn bg-blue-500 hover:bg-blue-700 rounded-full">Get Weather</button>
+          <button id="search-btn" type="submit" class="isBtn bg-blue-500 hover:bg-blue-700 rounded-full">Get Weather</button>
         </form>
       </div>
 
@@ -50,6 +50,7 @@
               Atlanta 
             </h1>
             <span id="current-time" class="mt-2 ml-1 text-2xl"></span>
+            <span id="current-icon" class="mt-2 ml-1 text-2xl"></span>
           </div>
           
           <p id="current-temp">Temp: 12 Celcius</p>
@@ -68,7 +69,7 @@
   </main>
 
   <script src="script.js"></script>
-  <script src="./lib/moment/moment.locale.min.js"></script>
+  <script src="./lib/moment/moment-locale.min.js"></script>
   <script>
     const m = moment();
     m.locale("en-au")

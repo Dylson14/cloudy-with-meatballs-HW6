@@ -24,22 +24,34 @@ const getWeather = (city) => {
     .then((data) => {
       console.log(data);
       currentCityEl.textContent = data.name;
-      currentTemp.textContent = data.main.temp;
+      // the temperature is currenlty in kelvin so to convert to celcius you subtract 273 from the current value.
+      currentTemp.textContent = `${Math.floor(data.main.temp - 273)}°C`;
+      currentWindSpeed.textContent = `${data.wind.speed}MPH`;
+      currentHumidity.textContent = `${data.main.humidity}%`;
 
       var weatherIcon = data.weather[0].icon
 
       const showIcon = (weatherIcon) => {
         var icon = document.createElement("img");
-
         icon.setAttribute("src", `https://openweathermap.org/img/w/${weatherIcon}.png`);
-
         currentIconEl.append(icon);
-
-       
-
       }
-
       showIcon(weatherIcon);
+      
+      var lat = data.coord.lat;
+      var lon = data.coord.lon;
+
+      var UVurl = `https://api.openweathermap.org/data/2.5/uvi?&lat=${lat}&lon=${lon}&appid=${APIKey}`;
+
+      fetch(UVurl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        currentUV.textContent = data.value;
+      })
+
       
     });
 

@@ -8,7 +8,7 @@ var currentTemp = document.getElementById("current-temp");
 var currentWindSpeed = document.getElementById("current-wind-speed");
 var currentHumidity = document.getElementById("current-humidity");
 var currentUV = document.getElementById("current-uv");
-var fiveDayForecast = document.getElementById("5-day-forecast");
+var fiveDayForecastEl = document.getElementById("5-day-forecast");
 
 // Inputing the APIKey which will give me access to server
 const APIKey = "7fc61c72acc56d32571bd5733eda5a09";
@@ -19,6 +19,12 @@ const getUV = (secondData) => {
   currentUV.textContent = secondData.value;
 }
 
+const fiveDayForecast = (secondData) => {
+  console.log(`We ate inside of the fiveDayForecast func: ${secondData}`)
+  var forecastHeading = document.createElement("h1");
+  forecastHeading.textContent = "5 day Forecast";
+  fiveDayForecastEl.append(forecastHeading);
+}
 
 // getWeather func: responsible for outputting weather in the user-inputted city
 const getWeather = (city) => {
@@ -58,6 +64,7 @@ const getWeather = (city) => {
       .then((secondData) => {
         getUV(secondData);
         
+        fiveDayForecast(secondData);
       })
 
 

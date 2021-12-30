@@ -8,9 +8,17 @@ var currentTemp = document.getElementById("current-temp");
 var currentWindSpeed = document.getElementById("current-wind-speed");
 var currentHumidity = document.getElementById("current-humidity");
 var currentUV = document.getElementById("current-uv");
+var fiveDayForecast = document.getElementById("5-day-forecast");
 
 // Inputing the APIKey which will give me access to server
 const APIKey = "7fc61c72acc56d32571bd5733eda5a09";
+
+// This is the getUV func, responsible for retreiving the UV data, this is done by using the lat and lon data gathered from the 1st fetch response. This prevents the user from having to input their own lat and lon inputs.
+const getUV = (secondData) => {
+  console.log(`we are inside the getUV func ${JSON.stringify(secondData)}`);
+  currentUV.textContent = secondData.value;
+}
+
 
 // getWeather func: responsible for outputting weather in the user-inputted city
 const getWeather = (city) => {
@@ -42,17 +50,17 @@ const getWeather = (city) => {
       var lon = data.coord.lon;
 
       var UVurl = `https://api.openweathermap.org/data/2.5/uvi?&lat=${lat}&lon=${lon}&appid=${APIKey}`;
-
+      // This section of the code is responsible for calling the getUV func which can be found above the getWeather func. 
       fetch(UVurl)
-      .then((response) => {
-        return response.json();
+      .then((secondResponse) => {
+        return secondResponse.json();
       })
-      .then((data) => {
-        console.log(data);
-        currentUV.textContent = data.value;
+      .then((secondData) => {
+        getUV(secondData);
+        
       })
 
-      
+
     });
 
 };

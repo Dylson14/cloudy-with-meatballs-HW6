@@ -24,21 +24,7 @@ const testFunc = () =>{
   console.log("testing to see if scripts cross paths");
 }
 
-// func responsible for retrieving the 5day forecast
-const fiveDayForecast = (secondData) => {
-  console.log(`We ate inside of the fiveDayForecast func: ${JSON.stringify(secondData)}`)
-  var forecastHeading = document.createElement("h1");
-  forecastHeading.textContent = "5 day Forecast";
-  fiveDayForecastEl.append(forecastHeading);
 
-  for(i = 0; i<=4; i++){
-    var forecastCardEl = document.createElement("p");
-    forecastCardEl.textContent = "weather here ";
-    forecastCardEl.classList.add("forecastCard")
-    fiveDayForecastEl.append(forecastCardEl);
-  }
-  
-}
 
 // getWeather func: responsible for outputting weather in the user-inputted city
 const getWeather = (city) => {
@@ -76,11 +62,37 @@ const getWeather = (city) => {
         return secondResponse.json();
       })
       .then((secondData) => {
+        console.log(secondData);
         getUV(secondData);
-        
-        fiveDayForecast(secondData);
+        fiveDayForecastHeading();
       })
 
+
+      // func responsible for retrieving the 5day forecast
+      const fiveDayForecastHeading = () => {
+        var forecastHeading = document.createElement("h1");
+        forecastHeading.textContent = "5 day Forecast";
+        fiveDayForecastEl.append(forecastHeading);
+      }
+
+      // SOMETHING HERE IS HORRIBLY WRONG! NEED TO FIND ALTERNATIVE API
+      // var fiveDayURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${APIKey}`
+
+      //   fetch(fiveDayURL)
+      //   .then((thirdResponse) => {
+      //     thirdResponse.json()
+      //   })
+      //   .then((thirdData) => {
+      //     console.log(`THIS IS WHAT YOU WANNA SEE: ${thirdData}`);
+      //   })
+
+        for(i = 0; i<=4; i++){
+          var forecastCardEl = document.createElement("p");
+          forecastCardEl.textContent = "weather here ";
+          forecastCardEl.setAttribute("class", "forecastCard")
+          fiveDayForecastEl.append(forecastCardEl);
+          // I can call on a function in HTML to get the date
+        }
 
     });
 

@@ -19,11 +19,25 @@ const getUV = (secondData) => {
   currentUV.textContent = secondData.value;
 }
 
+// just a test func to see if scripts connect from js to html
+const testFunc = () =>{
+  console.log("testing to see if scripts cross paths");
+}
+
+// func responsible for retrieving the 5day forecast
 const fiveDayForecast = (secondData) => {
-  console.log(`We ate inside of the fiveDayForecast func: ${secondData}`)
+  console.log(`We ate inside of the fiveDayForecast func: ${JSON.stringify(secondData)}`)
   var forecastHeading = document.createElement("h1");
   forecastHeading.textContent = "5 day Forecast";
   fiveDayForecastEl.append(forecastHeading);
+
+  for(i = 0; i<=4; i++){
+    var forecastCardEl = document.createElement("p");
+    forecastCardEl.textContent = "weather here ";
+    forecastCardEl.classList.add("forecastCard")
+    fiveDayForecastEl.append(forecastCardEl);
+  }
+  
 }
 
 // getWeather func: responsible for outputting weather in the user-inputted city
